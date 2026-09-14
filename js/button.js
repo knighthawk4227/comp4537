@@ -3,9 +3,7 @@
 export class RandomButton {
     constructor(number) {
         this.number = number;
-        // call function
         this.colour = this.getRandomColour();
-        // call function
         this.element = this.createElement();
     }
 
@@ -31,6 +29,22 @@ export class RandomButton {
         btn.style.width = '10em';
         btn.disabled = true;
         return btn;
+    }
+
+    /*
+     * Move each button based on window height
+     */
+    moveToRandom() {
+        const W = window.innerWidth;
+        const H = window.innerHeight;
+
+        const btnW = btn.element.offsetWidth || 160;
+        const btnH = btn.element.offsetHeight || 80;
+
+        const x = Math.random() * (W - btnW);
+        const y = Math.random() * (H - btnH);
+        this.btn.setPosition(x, y);
+
     }
 
 

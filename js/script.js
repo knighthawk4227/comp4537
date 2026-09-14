@@ -1,3 +1,7 @@
+// I used AI for assistance on this project
+// The ways I used it was to check syntax and explain if ther is a better way to do something as well as for checking and making sure it will work
+
+
 import { MESSAGES } from '../lang/messages/en/user.js';
 import { GameController } from './gameController.js';
 
@@ -10,3 +14,4 @@ const gameController = new GameController(
     document.getElementById('container'),
     document.getElementById('message')
 );
+

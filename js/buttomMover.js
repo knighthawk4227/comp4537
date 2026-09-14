@@ -1,3 +1,4 @@
+import { RandomButton } from "./button";
 
 export class ButtonMover {
 
@@ -6,15 +7,16 @@ export class ButtonMover {
     }
 
     /**
-     * Move buttons in a container
-     * @param container - container holding buttons
-     * @param time - amount of time before moving buttons
+     * Move buttons within body
+     * @param n - n times to scramble
+     * @param onComplete - promise of completetion
      */
     scramble(n, onComplete) {
         this.buttons.forEach(btn => document.body.appendChild(btn.element));
 
         let count = 0;
 
+        // move button n times
         const doMove = () => {
             this.moveAllToRandom();
             count++;
@@ -28,18 +30,9 @@ export class ButtonMover {
         doMove();
     }
 
-
     moveAllToRandom() {
-        const W = window.innerWidth;
-        const H = window.innerHeight;
-
         this.buttons.forEach(btn => {
-            const btnW = btn.element.offsetWidth || 160;
-            const btnH = btn.element.offsetHeight || 80;
-
-            const x = Math.random() * (W - btnW);
-            const y = Math.random() * (H - btnH);
-            btn.setPosition(x, y);
+            btn.moveToRandom();
         });
     }
 }
