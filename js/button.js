@@ -1,5 +1,3 @@
-
-
 export class RandomButton {
     constructor(number) {
         this.number = number;
@@ -19,7 +17,6 @@ export class RandomButton {
         }
         return colour;
     }
-
 
     createElement() {
         const btn = document.createElement('button');
@@ -47,7 +44,6 @@ export class RandomButton {
 
     }
 
-
     hideNumber() {
         this.element.textContent = ' ';
     }
@@ -61,5 +57,4 @@ export class RandomButton {
         this.element.style.left = x + 'px';
         this.element.style.top = y + 'px';
     }
-
 }
