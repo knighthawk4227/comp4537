@@ -31,18 +31,19 @@ export class RandomButton {
     /*
      * Move each button based on window height
      */
-    moveToRandom() {
-        const W = window.innerWidth;
-        const H = window.innerHeight;
-
-        const btnW = btn.element.offsetWidth || 160;
-        const btnH = btn.element.offsetHeight || 80;
-
-        const x = Math.random() * (W - btnW);
-        const y = Math.random() * (H - btnH);
-        this.btn.setPosition(x, y);
-
-    }
+    // AI said that this should not know it's place within a window and I actually agree it makes sense to not need to know about non button things
+    // moveToRandom() {
+    //     const W = window.innerWidth;
+    //     const H = window.innerHeight;
+    //
+    //     const btnW = this.element.offsetWidth || 160;
+    //     const btnH = this.element.offsetHeight || 80;
+    //
+    //     const x = Math.random() * (W - btnW);
+    //     const y = Math.random() * (H - btnH);
+    //     this.setPosition(x, y);
+    //
+    // }
 
     hideNumber() {
         this.element.textContent = ' ';

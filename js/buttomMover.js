@@ -1,4 +1,3 @@
-import { RandomButton } from "./button";
 
 export class ButtonMover {
 
@@ -23,16 +22,25 @@ export class ButtonMover {
             if (count < n) {
                 setTimeout(doMove, 2000);
             } else {
-                setTimeout(onComplete, 2000);
+                // done no delay
+                setTimeout(onComplete);
             }
         };
-
         doMove();
     }
 
     moveAllToRandom() {
+        const W = window.innerWidth;
+        const H = window.innerHeight;
+
+
         this.buttons.forEach(btn => {
-            btn.moveToRandom();
+            const btnW = btn.element.offsetWidth || 160;
+            const btnH = btn.element.offsetHeight || 80;
+
+            const x = Math.random() * (W - btnW);
+            const y = Math.random() * (H - btnH);
+            btn.setPosition(x, y);
         });
     }
 }
