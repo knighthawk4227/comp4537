@@ -1,3 +1,4 @@
+// I did use AI in this assignment
 import { MESSAGES } from "../lang/messages/en/user.js";
 
 document.addEventListener("DOMContentLoaded", () => {
