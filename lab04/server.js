@@ -120,7 +120,7 @@ class Server {
     const server = http.createServer((req, res) => {
       this.handleRequest(req, res);
     });
-    server.listen(this.port, this.containerHost, () => {
+    server.listen(this.port, this.containerHost || "127.0.0.1", () => {
       console.log(`Server started on ${this.port}`);
     });
   }
