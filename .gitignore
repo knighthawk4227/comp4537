@@ -1,0 +1,7 @@
+lab01_sub/
+lab2_fr/
+/package.json
+/package-lock.json
+node_modules
+/lab04/userInput
+.env
