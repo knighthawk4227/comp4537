@@ -8,3 +8,4 @@ node_modules
 /lab04/.*
 /lab04/Dockerfile
 /lab04/docker*
+init*
