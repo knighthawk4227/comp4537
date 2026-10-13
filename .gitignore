@@ -5,3 +5,6 @@ lab2_fr/
 node_modules
 /lab04/userInput
 .env
+/lab04/.*
+/lab04/Dockerfile
+/lab04/docker*
