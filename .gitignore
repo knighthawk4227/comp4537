@@ -9,3 +9,4 @@ node_modules
 /lab04/Dockerfile
 /lab04/docker*
 init*
+/lab05/db
