@@ -1,3 +1,7 @@
+// Claude (Claude Code, https://claude.com/claude-code) was used to help write and debug
+// solutions presented in this assignment (server2: server.js, modules/db.js,
+// modules/validator.js, docker-compose.yaml, nginx config).
+
 import http from "node:http";
 import "dotenv/config";
 import { Database } from "./modules/db.js";
