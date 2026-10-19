@@ -19,6 +19,23 @@ services:
 
     restart: unless-stopped
 
+  server2:
+    build: ./server2
+    container_name: isa-lab05-server2
+    restart: unless-stopped
+    depends_on:
+      - postgres
+    environment:
+      - PORT=3000
+      - CONTAINER_HOST=0.0.0.0
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_NAME=lab5
+      - LAB5_WRITER_PW=${LAB5_WRITER_PW}
+      - LAB5_READER_PW=${LAB5_READER_PW}
+    ports:
+      - 127.0.0.1:3005:3000
+
 # docker creates this volume
 volumes:
   pgdata:
