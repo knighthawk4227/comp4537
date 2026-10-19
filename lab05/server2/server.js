@@ -15,6 +15,12 @@ import { MESSAGES } from "./lang/messages/en/user.js";
 // POST /api/v1/sql                                  -> insert fixed rows
 const API_PREFIX = "/api/v1/sql";
 
+// server1 (client) origins allowed to call this API. CORS checks scheme+host+port
+// exactly, so this has to be the literal origin the browser sends, no trailing path.
+const ALLOWED_ORIGINS = [
+  "https://labs.useluss.dev",
+];
+
 class Server {
   constructor(port, host) {
     this.port = port;
@@ -26,10 +32,12 @@ class Server {
     // CORS: server1 (client) and server2 (this) are different origins, so every
     // response needs this header, and a JSON POST triggers a browser OPTIONS
     // preflight that must be answered before the real request is even sent.
-    // Wildcard here (not a pinned origin) because this API takes no cookies/auth
-    // and the client may be hosted from more than one place (e.g. a teammate's
-    // own IP/port during dev, plus wherever it ends up permanently hosted).
-    res.setHeader("Access-Control-Allow-Origin", "*");
+    // Only echo back the Origin header if it's on the allowlist - otherwise the
+    // browser gets no Access-Control-Allow-Origin at all and blocks the request.
+    const origin = req.headers.origin;
+    if (ALLOWED_ORIGINS.includes(origin)) {
+      res.setHeader("Access-Control-Allow-Origin", origin);
+    }
     res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
     res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
